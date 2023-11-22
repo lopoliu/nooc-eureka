@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: mapper/**.xml
+  type-aliases-package: com.lopo.domain
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nc_user
+    username: root
+    password: 123456
+  application:
+    name: userService
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8080/eureka
