@@ -26,7 +26,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order getById(Integer orderId) {
         Order order = orderMapper.selectById(orderId);
-        String url = "http://userService:8082/user/" + order.getUserId();
+        // 使用服务名称小写代替服务地址和端口
+        String url = "http://userservice/user/" + order.getUserId();
         User user = restTemplate.getForObject(url, User.class);
         order.setUser(user);
         return order;
